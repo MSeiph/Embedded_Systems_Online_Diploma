@@ -1,0 +1,68 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 4, 2023
+ *      Author: Seif
+ */
+
+#include <stdio.h>
+int main () {
+
+
+	//Ex3_finding transpose of matrix
+	float mat [10][10], trans [10][10];
+	int i, j, r, c;
+
+	printf ("Enter rows and columns of matrix: ");
+	fflush (stdin); fflush (stdout);
+	scanf ("%d %d", &r, &c);
+
+	if (r > 10 || c > 10)
+	{
+		printf ("Error! You exceeded the matrix range for this application.");
+	}
+
+	else {
+
+		printf ("Enter elements of matrix: \n");
+		for (i = 0; i < r; ++i)
+		{
+			for (j = 0 ; j < c ; ++j)
+			{
+				printf ("Enter elements a%d%d: ", i+1, j+1);
+				fflush (stdin); fflush (stdout);
+				scanf ("%f", &mat[i][j]);
+			}
+		}
+
+		printf ("Entered Matrix: \n");
+		for (i = 0; i < r; ++i)
+		{
+			for (j = 0 ; j < c ; ++j)
+			{
+				printf ("%.1f\t", mat[i][j] );
+			}
+			printf ("\n");
+		}
+
+		//transpose
+		printf ("Transpose Matrix: \n");
+		for (i = 0; i < r; ++i)
+		{
+			for (j = 0 ; j < c ; ++j)
+			{
+				trans[j][i]=mat[i][j];
+			}
+		}
+
+		for (i = 0; i < c; ++i)
+		{
+			for (j = 0 ; j < r ; ++j)
+			{
+				printf ("%.1f\t", trans[i][j] );
+			}
+			printf ("\n");
+		}
+	}
+	return 0;
+}
